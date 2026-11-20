@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica N°7 - CSS Grid</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #dcdcdc;
+            font-family: Arial, sans-serif;
+        }
+        .contenedor-principal {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 50px;
+            background-color: #e0e0e0;
+            border: 1px solid #ccc;
+        }
+        .cabecera {
+            display: flex;
+            justify-content: space-between;
+            background-color: #ffffff;
+            padding: 20px;
+            margin-bottom: 30px;
+            border: 1px solid #ccc;
+        }
+        .info-izquierda, .info-derecha {
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        .info-derecha {
+            text-align: right;
+        }
+        h1 {
+            text-align: center;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        .nivel-botones {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 30px;
+        }
+        .nivel-botones button {
+            padding: 8px 16px;
+            border: none;
+            background-color: #ffffff;
+            cursor: pointer;
+            border-radius: 2px;
+        }
+        .nivel-botones button.activo {
+            background-color: #0066ff;
+            color: #ffffff;
+        }
+        .caja-contenedor {
+            background-color: #ffffff;
+            border: 1px solid #ccc;
+            padding: 20px;
+            min-height: 200px;
+        }
+        .cuadro-rojo {
+            background-color: #ff0000;
+        }
+        .cuadro-amarillo {
+            background-color: #ffff00;
+        }
+        .cuadro-verde {
+            background-color: #008000;
+        }
+        .boton-inicio {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .boton-inicio button {
+            padding: 6px 20px;
+            border: none;
+            background-color: #ffffff;
+            border-radius: 2px;
+            cursor: default;
+        }
+        .boton-azul-centro {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .boton-azul-centro button {
+            padding: 6px 20px;
+            border: none;
+            background-color: #0066ff;
+            color: #ffffff;
+            border-radius: 2px;
+            cursor: default;
+        }
+        .pagina { display: none; }
+        .pagina.activa { display: block; }
+    </style>
+</head>
+<body>
+    <div class="contenedor-principal">
+        <h1>PRÁCTICA NRO 7 </h1>
+
+        <!-- CABECERA CON TUS DATOS -->
+        <div class="cabecera">
+            <div class="info-izquierda">
+                <strong>ESTUDIANTE:</strong> Juan Vidal Guía Colque<br>
+                <strong>RU:</strong> 123629
+            </div>
+            <div class="info-derecha">
+                <strong>DOCENTE:</strong> Ing. Choque Matos Javier<br>
+                <strong>MATERIA:</strong> SIS-313 G1
+            </div>
+        </div>
+
+        <!-- BOTONES DE NAVEGACIÓN DE NIVELES -->
+        <div class="nivel-botones">
+            <button class="btn-nivel activo" onclick="mostrarNivel(1)">NIVEL 1</button>
+            <button class="btn-nivel" onclick="mostrarNivel(2)">NIVEL 2</button>
+            <button class="btn-nivel" onclick="mostrarNivel(3)">NIVEL 3</button>
+            <button class="btn-nivel" onclick="mostrarNivel(4)">NIVEL 4</button>
+            <button class="btn-nivel" onclick="mostrarNivel(5)">NIVEL 5</button>
+            <button class="btn-nivel" onclick="mostrarNivel(6)">NIVEL 6</button>
+            <button class="btn-nivel" onclick="mostrarNivel(7)">NIVEL 7</button>
+            <button class="btn-nivel" onclick="mostrarNivel(8)">NIVEL 8</button>
+            <button class="btn-nivel" onclick="mostrarNivel(9)">NIVEL 9</button>
+            <button class="btn-nivel" onclick="mostrarNivel(10)">NIVEL 10</button>
+            <button class="btn-nivel" onclick="mostrarNivel(11)">NIVEL 11</button>
+            <button class="btn-nivel" onclick="mostrarNivel(12)">NIVEL 12</button>
+        </div>
+
+        <!-- ==================== NIVEL 1 ==================== -->
+        <div class="pagina activa" id="nivel1">
+            <h3 style="text-align:center; margin-bottom:15px; font-size:15px;">NIVEL 1</h3>
+            <div class="caja-contenedor" style="display: grid; grid-template-columns: 1fr 1fr 1fr; grid-template-rows: 100px; gap: 15px;">
+                <div class="cuadro-rojo"></div>
+                <div class="cuadro-amarillo"></div>
+                <div class="cuadro-verde"></div>
+            </div>
+            <div class="boton-inicio"><button>VOLVER AL INICIO</button></div>
+        </div>
+
+        <!-- ==================== NIVEL 2 ==================== -->
+        <div class="pagina" id="nivel2">
+            <h3 style="text-align:center; margin-bottom:15px; font-size:15px;">NIVEL 2</h3>
+            <div class="caja-contenedor" style="display: grid; grid-template-columns: 1fr; grid-template-rows: 60px 60px 60px; gap: 10px;">
+                <div class="cuadro-rojo"></div>
+                <div class="cuadro-amarillo"></div>
+                <div class="cuadro-verde"></div>
+            </div>
+            <div class="boton-inicio"><button>VOLVER AL INICIO</button></div>
+        </div>
+
+        <!-- ==================== NIVEL 3 ==================== -->
+        <div class="pagina" id="nivel3">
+            <h3 style="text-align:center; margin-bottom:15px; font-size:15px;">NIVEL 3</h3>
+            <div class="caja-contenedor" style="display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 70px 70px; gap: 10px;">
+                <div class="cuadro-rojo" style="grid-column-start: 1; grid-column-end: 3;"></div>
+                <div class="cuadro-amarillo" style="grid-column-start: 1; grid-column-end: 2;"></div>
+                <div class="cuadro-verde" style="grid-column-start: 2; grid-column-end: 3;"></div>
+            </div>
+            <div class="boton-azul-centro"><button>VOLVER AL INICIO</button></div>
+        </div>
+
+        <!-- ==================== NIVEL 4 ==================== -->
+        <div class="pagina" id="nivel4">
+            <h3 style="text-align:center; margin-bottom:15px; font-size:15px;">NIVEL 4</h3>
+            <div class="caja-contenedor" style="display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 70px 70px; gap: 10px;">
+                <div class="cuadro-rojo" style="grid-column-start: 1; grid-column-end: 2; grid-row-start: 1; grid-row-end: 3;"></div>
+                <div class="cuadro-amarillo" style="grid-column-start: 2; grid-column-end: 3; grid-row-start: 1; grid-row-end: 2;"></div>
+                <div class="cuadro-verde" style="grid-column-start: 2; grid-column-end: 3; grid-row-start: 2; grid-row-end: 3;"></div>
+            </div>
+            <div class="boton-inicio"><button>VOLVER AL INICIO</button></div>
+        </div>
+
+        <!-- ==================== NIVEL 5 ==================== -->
+        <div class="pagina" id="nivel5">
+            <h3 style="text-align:center; margin-bottom:15px; font-size:15px;">NIVEL 5</h3>
+            <div class="caja-contenedor" style="display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 70px 70px; gap: 10px;">
+                <div class="cuadro-rojo" style="grid-column-start: 1; grid-column-end: 3;"></div>
+                <div class="cuadro-amarillo" style="grid-column-start: 1; grid-column-end: 2;"></div>
+                <div class="cuadro-verde" style="grid-column-start: 2; grid-column-end: 3;"></div>
+            </div>
+            <div class="boton-inicio"><button>VOLVER AL INICIO</button></div>
+        </div>
+
+        <!-- ==================== NIVEL 6 ==================== -->
+        <div class="pagina" id="nivel6">
+            <h3 style="text-align:center; margin-bottom:15px; font-size:15px;">NIVEL 6</h3>
+            <div class="caja-contenedor" style="display: grid; grid-template-columns: 2fr 1fr; grid-template-rows: 80px 80px; gap: 10px;">
+                <div class="cuadro-rojo" style="grid-column-start: 1; grid-column-end: 2;"></div>
+                <div class="cuadro-amarillo" style="grid-column-start: 1; grid-column-end: 2; grid-row-start: 2; grid-row-end: 3;"></div>
+                <div class="cuadro-verde" style="grid-column-start: 2; grid-column-end: 3; grid-row-start: 1; grid-row-end: 3;"></div>
+            </div>
+            <div class="boton-inicio"><button>VOLVER AL INICIO</button></div>
+        </div>
+
+        <!-- ==================== NIVEL 7 ==================== -->
+        <div class="pagina" id="nivel7">
+            <h3 style="text-align:center; margin-bottom:15px; font-size:15px;">NIVEL 7</h3>
+            <div class="caja-contenedor" style="display: grid; grid-template-columns: 2fr 1fr; grid-template-rows: 70px 70px 70px; gap: 10px;">
+                <div class="cuadro-rojo" style="grid-column-start: 2; grid-column-end: 3; grid-row-start: 1; grid-row-end: 2;"></div>
+                <div class="cuadro-amarillo" style="grid-column-start: 2; grid-column-end: 3; grid-row-start: 2; grid-row-end: 3;"></div>
+                <div class="cuadro-verde" style="grid-column-start: 1; grid-column-end: 2; grid-row-start: 1; grid-row-end: 3;"></div>
+            </div>
+            <div class="boton-inicio"><button>VOLVER AL INICIO</button></div>
+        </div>
+
+        <!-- ==================== NIVEL 8 ==================== -->
+        <div class="pagina" id="nivel8">
+            <h3 style="text-align:center; margin-bottom:15px; font-size:15px;">NIVEL 8</h3>
+            <div class="caja-contenedor" style="display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 70px 70px; gap: 10px;">
+                <div class="cuadro-rojo" style="grid-column: span 2;"></div>
+                <div class="cuadro-amarillo" style="grid-column: span 1;"></div>
+                <div class="cuadro-verde" style="grid-column: span 1;"></div>
+            </div>
+            <div class="boton-inicio"><button>VOLVER AL INICIO</button></div>
+        </div>
+
+        <!-- ==================== NIVEL 9 ==================== -->
+        <div class="pagina" id="nivel9">
+            <h3 style="text-align:center; margin-bottom:15px; font-size:15px;">NIVEL 9</h3>
+            <div class="caja-contenedor" style="display: grid; grid-template-columns: 2fr 1fr; grid-template-rows: 50px 50px; gap: 10px;">
+                <div class="cuadro-rojo" style="grid-column-start: 1; grid-column-end: 2; grid-row-start: 1; grid-row-end: 3;"></div>
+                <div class="cuadro-amarillo" style="grid-column-start: 2; grid-column-end: 3; grid-row-start: 1; grid-row-end: 2;"></div>
+                <div class="cuadro-verde" style="grid-column-start: 2; grid-column-end: 3; grid-row-start: 2; grid-row-end: 3;"></div>
+            </div>
+            <div class="boton-inicio"><button>VOLVER AL INICIO</button></div>
+        </div>
+
+        <!-- ==================== NIVEL 10 ==================== -->
+        <div class="pagina" id="nivel10">
+            <h3 style="text-align:center; margin-bottom:15px; font-size:15px;">NIVEL 10</h3>
+            <div class="caja-contenedor" style="display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 70px 70px; gap: 10px;">
+                <div class="cuadro-rojo" style="grid-column-start: 1; grid-column-end: 3; grid-row-start: 1; grid-row-end: 2;"></div>
+                <div class="cuadro-verde" style="grid-column-start: 1; grid-column-end: 3; grid-row-start: 2; grid-row-end: 3;"></div>
+                <div class="cuadro-amarillo" style="grid-column-start: 1; grid-column-end: 3; grid-row-start: 2; grid-row-end: 3;"></div>
+            </div>
+            <div class="boton-inicio"><button>VOLVER AL INICIO</button></div>
+        </div>
+
+        <!-- ==================== NIVEL 11 ==================== -->
+        <div class="pagina" id="nivel11">
+            <h3 style="text-align:center; margin-bottom:15px; font-size:15px;">NIVEL 11</h3>
+            <div class="caja-contenedor" style="display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 70px 70px; gap: 10px;">
+                <div class="cuadro-rojo" style="grid-column-start: 1; grid-column-end: 2;"></div>
+                <div class="cuadro-amarillo" style="grid-column-start: 2; grid-column-end: 3;"></div>
+                <div class="cuadro-verde" style="grid-column-start: 1; grid-column-end: 3; grid-row-start: 2; grid-row-end: 3;"></div>
+            </div>
+            <div class="boton-azul-centro"><button>VOLVER AL INICIO</button></div>
+        </div>
+
+        <!-- ==================== NIVEL 12 ==================== -->
+        <div class="pagina" id="nivel12">
+            <h3 style="text-align:center; margin-bottom:15px; font-size:15px;">NIVEL 12</h3>
+            <div class="caja-contenedor" style="display: grid; grid-template-columns: 3fr 1fr; grid-template-rows: 80px 60px; gap: 10px;">
+                <div class="cuadro-rojo" style="grid-column-start: 1; grid-column-end: 2; grid-row-start: 1; grid-row-end: 2;"></div>
+                <div class="cuadro-verde" style="grid-column-start: 2; grid-column-end: 3; grid-row-start: 1; grid-row-end: 2;"></div>
+                <div class="cuadro-amarillo" style="grid-column-start: 1; grid-column-end: 3; grid-row-start: 2; grid-row-end: 3;"></div>
+            </div>
+            <div class="boton-inicio"><button>VOLVER AL INICIO</button></div>
+        </div>
+
+    </div>
+
+    <script>
+        function mostrarNivel(numero) {
+            // Ocultar todos los niveles
+            document.querySelectorAll('.pagina').forEach(p => p.classList.remove('activa'));
+            // Quitar clase activo de todos los botones
+            document.querySelectorAll('.btn-nivel').forEach(b => b.classList.remove('activo'));
+            // Mostrar nivel seleccionado
+            document.getElementById('nivel' + numero).classList.add('activa');
+            // Marcar botón activo
+            event.target.classList.add('activo');
+        }
+    </script>
+</body>
+</html>
